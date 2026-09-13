@@ -200,12 +200,12 @@
   .view{flex:1; overflow:auto; padding:20px 28px 28px;}
 
   /* Month grid */
-  .month-grid{display:grid; grid-template-columns:repeat(7,1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden;}
+  .month-grid{display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; min-width:0;}
   .dow-row{display:contents;}
-  .dow-cell{background:var(--bg-soft); text-align:center; padding:10px 0; font-size:11px; font-weight:700; color:var(--text-faint); text-transform:uppercase; letter-spacing:.05em;}
+  .dow-cell{background:var(--bg-soft); text-align:center; padding:10px 0; font-size:11px; font-weight:700; color:var(--text-faint); text-transform:uppercase; letter-spacing:.05em; min-width:0;}
   .day-cell{
     background:var(--card); min-height:110px; padding:8px; display:flex; flex-direction:column; gap:5px;
-    cursor:pointer; position:relative; transition:background .15s;
+    cursor:pointer; position:relative; transition:background .15s; min-width:0;
   }
   .day-cell:hover{background:var(--accent-soft);}
   .day-cell.other-month{background:var(--bg); }
@@ -216,11 +216,12 @@
     font-size:12.5px; font-weight:700; color:var(--text); width:24px; height:24px; display:flex; align-items:center; justify-content:center; border-radius:50%;
   }
   .day-cell.is-today .day-num{background:var(--accent-grad); color:#fff;}
-  .day-events{display:flex; flex-direction:column; gap:3px; overflow:hidden;}
+  .day-events{display:flex; flex-direction:column; gap:3px; overflow:hidden; min-width:0;}
   .ev-chip{
     font-size:10.8px; padding:3px 6px; border-radius:6px; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
-    display:flex; align-items:center; gap:4px; border-left:3px solid transparent;
+    display:flex; align-items:center; gap:4px; border-left:3px solid transparent; min-width:0;
   }
+  .ev-chip span{overflow:hidden; text-overflow:ellipsis;}
   .ev-chip.evento{background:var(--accent-soft); color:var(--accent); border-color:#6d5ef7;}
   .ev-chip.reuniao{background:var(--warn-soft); color:#c97e0e; border-color:var(--warn);}
   [data-theme="dark"] .ev-chip.reuniao{color:#ffb945;}
@@ -244,14 +245,14 @@
   .ev-preview-chip{background:var(--accent-soft); color:var(--accent); font-size:10px; font-weight:700; padding:2px 7px; border-radius:999px;}
 
   /* Week view */
-  .week-grid{display:grid; grid-template-columns:60px repeat(7,1fr); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; background:var(--card);}
+  .week-grid{display:grid; grid-template-columns:60px repeat(7,minmax(0,1fr)); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; background:var(--card);}
   .week-head{display:contents;}
   .week-head-cell{padding:10px 6px; text-align:center; border-bottom:1px solid var(--border); border-left:1px solid var(--border); background:var(--bg-soft);}
   .week-head-cell:first-child{border-left:none;}
   .week-head-dow{font-size:10.5px; color:var(--text-faint); font-weight:700; text-transform:uppercase;}
   .week-head-num{font-size:16px; font-weight:800; margin-top:2px;}
   .week-head-cell.is-today .week-head-num{color:var(--accent);}
-  .week-body{display:grid; grid-template-columns:60px repeat(7,1fr); position:relative;}
+  .week-body{display:grid; grid-template-columns:60px repeat(7,minmax(0,1fr)); position:relative;}
   .hour-col{display:flex; flex-direction:column;}
   .hour-label{height:52px; font-size:10px; color:var(--text-faint); text-align:right; padding-right:8px; transform:translateY(-6px);}
   .week-day-col{border-left:1px solid var(--border); position:relative;}
@@ -267,7 +268,7 @@
   /* Kanban */
   .kanban-head{display:flex; align-items:center; justify-content:space-between; margin-bottom:18px; flex-wrap:wrap; gap:10px;}
   .kanban-date-title{font-size:15px; font-weight:700; color:var(--text-dim);}
-  .kanban-board{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; align-items:start;}
+  .kanban-board{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; align-items:start;}
   .kanban-col{background:var(--bg-soft); border:1px solid var(--border); border-radius:var(--radius); padding:14px; min-height:300px;}
   .kanban-col-head{display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;}
   .kanban-col-title{display:flex; align-items:center; gap:8px; font-size:13px; font-weight:700;}
